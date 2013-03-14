@@ -1,0 +1,15 @@
+<%= erb :_logo %>
+
+<div class ="content">
+<div class="container1">
+  <h2><%= @category_name %></h2>
+
+  <ul>
+    <% @posts.each do |post| %>
+    <li><a href="/<%= post.post_url %>"><%= post.title %></a></li>
+    <% end %>
+    
+    
+  </ul> 
+</div>
+</div>

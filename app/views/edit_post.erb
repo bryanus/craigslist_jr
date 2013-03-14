@@ -1,0 +1,36 @@
+<%= erb :_logo %>
+
+<div class="container3">
+
+<form action="/edit" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="post_url" value="<%= @post.post_url %>">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="post[title]" value="<%= @post.title %>">
+  <br><br>
+  <label for="price">Price:</label> 
+  <input type="text" id="price" name="post[price]" value="<%= @post.price %>">
+  <br><br>
+  <label for="description">Description:</label> 
+  <input type="text" id="description" name="post[description]" value="<%= @post.description %>">
+
+  <br><br>
+  <label>Email:</label> 
+  <input type="text" name="post[email]" value="<%= @post.email %>">
+  <br><br>
+  <label>Category:</label>
+  <select name="post[category_id]" selected="<%=Category.find(@post.category_id).name %>"> 
+  <% @categories.each do |cat| %>
+    <% if Category.find(@post.category_id).name == cat.name %>
+    <option value="<%= cat.id %>" selected="true" ><%= cat.name %></option>
+      <% else %>
+      <option value="<%= cat.id %>"><%= cat.name %></option>
+    <% end %>
+    <% end %>
+  </select><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+</div>
+
+

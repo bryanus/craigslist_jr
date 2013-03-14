@@ -1,0 +1,11 @@
+<%= erb :_logo %>
+
+<div class ="content">
+<div class="container2">
+  <h2>All Categories</h2><ul id="categories">
+    <% @categories.each do |item| %>
+    <li><a href="/category/<%= item.name.gsub(/\s/, '_') %>"><%= item.name %></a></li>
+    <% end %>
+  </ul> 
+</div>
+</div>
